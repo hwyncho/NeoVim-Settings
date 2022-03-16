@@ -15,7 +15,7 @@ M.setup = function()
     end
 
     local config = {
-        virtual_text = true,
+        virtual_text = false,
         signs = {active = signs},
         update_in_insert = true,
         underline = true,
@@ -94,6 +94,10 @@ M.on_attach = function(client, bufnr)
 
     lsp_highlight_document(client)
     lsp_keymaps(bufnr)
+
+    vim.api.nvim_exec([[
+        autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})
+    ]], false)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
