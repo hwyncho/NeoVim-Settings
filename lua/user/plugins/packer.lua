@@ -29,11 +29,13 @@ return require('packer').startup({
         use "moll/vim-bbye"
         use "nvim-lua/plenary.nvim"
         use "nvim-lua/popup.nvim"
+        use "numToStr/Comment.nvim"
 
         use {
             "akinsho/bufferline.nvim",
             requires = {"kyazdani42/nvim-web-devicons"}
         }
+        use "akinsho/toggleterm.nvim"
         use {
             "kyazdani42/nvim-tree.lua",
             requires = {"kyazdani42/nvim-web-devicons"}
