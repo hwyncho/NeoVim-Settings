@@ -1,7 +1,4 @@
-local M = {}
-
--- TODO: backfill this to template
-M.setup = function()
+local function lsp_setup()
     local signs = {
         {name = "DiagnosticSignError", text = ""},
         {name = "DiagnosticSignWarn", text = ""},
@@ -87,7 +84,7 @@ local function lsp_keymaps(bufnr)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
-M.on_attach = function(client, bufnr)
+local function lsp_on_attach(client, bufnr)
     -- if client.name == "tsserver" then
     --     client.resolved_capabilities.document_formatting = false
     -- end
@@ -100,11 +97,15 @@ M.on_attach = function(client, bufnr)
     ]], false)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
+local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then return end
+if status_ok then
+    lsp_capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+local M = {}
+M.setup = lsp_setup
+M.on_attach = lsp_on_attach
+M.capabilities = lsp_capabilities
 
 return M
