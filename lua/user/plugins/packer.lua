@@ -68,7 +68,6 @@ return require('packer').startup({
         use "glepnir/lspsaga.nvim"
         use "neovim/nvim-lspconfig"
         use "tamago324/nlsp-settings.nvim"
-        use "williamboman/nvim-lsp-installer"
 
         if packer_bootstrap then require("packer").sync() end
     end,
