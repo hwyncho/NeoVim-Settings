@@ -108,6 +108,7 @@ end
 local extended_schemas = extend(schemas, default_schemas)
 
 local options = {
+    cmd = {"vscode-json-languageserver", "--stdio"},
     settings = {json = {schemas = extended_schemas}},
     setup = {
         commands = {
