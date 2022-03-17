@@ -8,7 +8,9 @@ local options = {
     flags = {debounce_text_changes = 150}
 }
 
-local servers = {"jsonls", "pylsp"}
+local servers = {
+    "bashls", "dockerls", "jsonls", "pylsp", "sumneko_lua", "tsserver", "yamlls"
+}
 
 for _, server in pairs(servers) do
     local so_status_ok, server_options = pcall(require,
