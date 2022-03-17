@@ -66,7 +66,6 @@ return require('packer').startup({
         }
 
         use "glepnir/lspsaga.nvim"
-        use "jose-elias-alvarez/null-ls.nvim"
         use "neovim/nvim-lspconfig"
         use "tamago324/nlsp-settings.nvim"
         use "williamboman/nvim-lsp-installer"
