@@ -30,6 +30,7 @@ return require('packer').startup({
         use "nvim-lua/plenary.nvim"
         use "nvim-lua/popup.nvim"
         use "numToStr/Comment.nvim"
+        use "windwp/nvim-autopairs"
 
         use {
             "akinsho/bufferline.nvim",

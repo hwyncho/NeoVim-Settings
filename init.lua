@@ -7,6 +7,7 @@ require("user.plugins.packer")
 require("user.plugins.comment")
 require("user.plugins.impatient")
 require("user.plugins.indent_blankline")
+require("user.plugins.nvim_autopairs")
 require("user.plugins.which_key")
 
 require("user.plugins.bufferline")
