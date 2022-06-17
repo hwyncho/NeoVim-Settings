@@ -4,26 +4,6 @@ if not status_ok then return end
 local nvim_tree_config = require("nvim-tree.config")
 local nvim_tree_callback = nvim_tree_config.nvim_tree_callback
 
-vim.g.nvim_tree_icons = {
-    default = "",
-    symlink = "",
-    git = {
-        unstaged = "",
-        staged = "S",
-        unmerged = "",
-        renamed = "➜",
-        deleted = "",
-        untracked = "U",
-        ignored = "◌"
-    },
-    folder = {
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = ""
-    }
-}
 local setup = {
     disable_netrw = true,
     hijack_netrw = true,
@@ -60,16 +40,43 @@ local setup = {
         relativenumber = false
     },
     trash = {cmd = "trash", require_confirm = true},
-    quit_on_open = 0,
-    git_hl = 1,
-    disable_window_picker = 0,
-    root_folder_modifier = ":t",
-    show_icons = {
-        git = 1,
-        folders = 1,
-        files = 1,
-        folder_arrows = 1,
-        tree_width = 30
+    renderer = {
+        highlight_git = true,
+        root_folder_modifier = ":t",
+        icons = {
+            show = {
+                git = true,
+                folder = true,
+                file = true,
+                folder_arrow = true
+            },
+            glyphs = {
+                default = "",
+                symlink = "",
+                git = {
+                    unstaged = "",
+                    staged = "S",
+                    unmerged = "",
+                    renamed = "➜",
+                    deleted = "",
+                    untracked = "U",
+                    ignored = "◌"
+                },
+                folder = {
+                    default = "",
+                    open = "",
+                    empty = "",
+                    empty_open = "",
+                    symlink = ""
+                }
+            }
+        },
+    },
+    actions = {
+        open_file = {
+            quit_on_open = false,
+            window_picker = {enable = true}
+        }
     }
 }
 nvim_tree.setup(setup)
