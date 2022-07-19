@@ -13,7 +13,7 @@ local setup = {
     open_on_tab = false,
     hijack_cursor = false,
     update_cwd = true,
-    update_to_buf_dir = {enable = true, auto_open = true},
+    hijack_directories = {enable = true, auto_open = true},
     diagnostics = {
         enable = true,
         icons = {hint = "", info = "", warning = "", error = ""}
@@ -27,7 +27,6 @@ local setup = {
         height = 30,
         hide_root_folder = false,
         side = "left",
-        auto_resize = true,
         mappings = {
             custom_only = false,
             list = {
@@ -75,6 +74,7 @@ local setup = {
     actions = {
         open_file = {
             quit_on_open = false,
+            resize_window = true,
             window_picker = {enable = true}
         }
     }
